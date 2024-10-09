@@ -1,24 +1,20 @@
-import './navbar.scss'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import './navbar.scss';
 
-export default function Navbar() {
-
-    const currentRoute = window.location.pathname;
-
+const Navbar = () => {
     return (
-        <nav className='nav'>
-            <ul className='nav_list'>
-                <li className={currentRoute === '/Home' ? 'nav_list_item_active' : 'nav_list_item'}>
-                    <Link  to='/Home'>
-                        Accueil
-                    </Link>
+        <nav>
+            <ul className="nav_list">
+                <li className="nav_list_item">
+                    <NavLink to="/Home" activeClassName="nav_list_item_active">Accueil</NavLink>
                 </li>
-                <li className={currentRoute === '/about' ? 'nav_list_item_active' : 'nav_list_item'}>
-                    <Link  to='/about'>
-                        A propos
-                    </Link>
+                <li className="nav_list_item">
+                    <NavLink to="/about" activeClassName="nav_list_item_active">A propos</NavLink>
                 </li>
             </ul>
         </nav>
-    )
-}
+    );
+};
+
+export default Navbar;
